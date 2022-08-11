@@ -9,6 +9,7 @@ from indexers import pipeline
 from splitDataset import split_data
 from pyspark.ml.classification import RandomForestClassifier
 from pyspark.ml.tuning import ParamGridBuilder,CrossValidator
+import os
 
 spark = SparkSession.builder.master("local[*]").getOrCreate() 
 
@@ -73,5 +74,6 @@ predictions = Model.transform(test_set)
 print("Test Area Under ROC: " + str(evaluator.evaluate(predictions, {evaluator.metricName: "areaUnderROC"})))
 
 # Saving our model
-Model.write().overwrite().save('./model1')
 os.mkdir('./model1')
+
+Model.write().overwrite().save('./model1')
