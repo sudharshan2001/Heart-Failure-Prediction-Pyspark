@@ -5,8 +5,8 @@ from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.feature import StringIndexer 
 from pyspark.sql.functions import * 
 from pyspark.ml import Pipeline 
-from indexers import pipeline
-from splitDataset import split_data
+from script.indexers import pipeline
+from script.splitDataset import split_data
 from pyspark.ml.classification import RandomForestClassifier
 from pyspark.ml.tuning import ParamGridBuilder,CrossValidator
 import os
